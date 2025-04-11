@@ -1,18 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+
+//ToDo:
+// use a copy to sort or sort to a new array 
+//
+//
+//
 
 namespace Ex01_01
 {
     class Program
     {
-        static void Main()
+        public static void Main()
         {
-          Console.WriteLine();
+            const int k_NumOfBinaryNumbers = 4;
+            string input;
+
+            BinaryNumber[] binaryNumbersArray = new BinaryNumber[k_NumOfBinaryNumbers];
+
+            for (int i = 0; i < k_NumOfBinaryNumbers; i++)
+            {
+                binaryNumbersArray[i] = new BinaryNumber();
+            }
+
+            Console.WriteLine("Please Enter a 4 binary numbers with 7 digits each");
+
+            for(int i = 0; i < k_NumOfBinaryNumbers; i++)
+            {
+                input = Console.ReadLine();
+                while(BinaryNumber.IsBinaryNameValid(input) != true)
+                {
+                    Console.WriteLine("Input is invalid, please try again");
+                    input = Console.ReadLine();
+                }
+
+                binaryNumbersArray[i].Update(input);
+            }
+
+            BinaryArrayOperations.PrintBinaryStrings(binaryNumbersArray);
+            BinaryArrayOperations.PrintSortedDecimalValues(binaryNumbersArray);
+            BinaryArrayOperations.PrintAverage(binaryNumbersArray);
+            BinaryArrayOperations.PrintLongestOnesSequence(binaryNumbersArray);
+            BinaryArrayOperations.PrintTransitionsOf0And1(binaryNumbersArray);
+            BinaryArrayOperations.PrintNumberWithMostOnes(binaryNumbersArray);
+            BinaryArrayOperations.PrintTotalOnesCount(binaryNumbersArray);
         }
     }
 }
