@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Ex01_02
 {
-    internal class Program
+    class Program
     {
+        public static void Main()
+        {
+            NumberTree.PrintNumberTree(7, 1, 1);
+            Console.ReadLine();
+        }
     }
 }

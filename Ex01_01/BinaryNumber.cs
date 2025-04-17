@@ -61,6 +61,7 @@ namespace Ex01_01
             int decimalValue = 0;       
             int lastDigit;
             int baseValue = 1;
+
             while (i_binaryInt > 0)
             {
                 lastDigit = i_binaryInt % 10;

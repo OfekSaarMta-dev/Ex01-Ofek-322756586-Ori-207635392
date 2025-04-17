@@ -25,18 +25,25 @@ namespace Ex01_01
 
         public static void PrintSortedDecimalValues(BinaryNumber[] i_binaryNumbersArray)
         {
-            Array.Sort(i_binaryNumbersArray, (a, b) => (a.GetDecimalValue().CompareTo(b.GetDecimalValue())));
+            int[] decimalValues = new int[i_binaryNumbersArray.Length];
+
+            for(int i = 0; i < i_binaryNumbersArray.Length; i++)
+            {
+                decimalValues[i] = i_binaryNumbersArray[i].GetDecimalValue();
+            }
+
+            Array.Sort(decimalValues);
 
             StringBuilder output = new StringBuilder();
 
             output.Append("Decimal values in descending order: ");
 
-            for(int i = i_binaryNumbersArray.Length - 1; i > 0; i--)
+            for(int i = decimalValues.Length - 1; i > 0; i--)
             {
-                output.Append(string.Format("{0}, ", i_binaryNumbersArray[i].GetDecimalValue()));
+                output.Append(string.Format("{0}, ", decimalValues[i]));
             }
 
-            output.Append(string.Format("{0}, ", i_binaryNumbersArray[0].GetDecimalValue()));
+            output.Append(string.Format("{0}, ", decimalValues[0]));
 
             Console.WriteLine(output);
         }
@@ -127,7 +134,7 @@ namespace Ex01_01
                 int currentOnesCount = binaryNumber.GetOnesCount();
                 if (currentOnesCount == maxOnesCount && binaryNumber.GetBinaryString() != binaryWithMostOnes)
                 {
-                    output.Append(string.Format(" (or {0} (both with {1})", decimalValueOfBinaryWithMostOnes, maxOnesCount));
+                    output.Append(string.Format(" (or {0} (both with {1})) ", binaryNumber.GetDecimalValue(), maxOnesCount));
                 }
             }
 

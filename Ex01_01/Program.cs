@@ -3,7 +3,7 @@ using System.Linq;
 
 //ToDo:
 // use a copy to sort or sort to a new array 
-//
+// empty ctor seems bad 
 //
 //
 
@@ -44,6 +44,7 @@ namespace Ex01_01
             BinaryArrayOperations.PrintTransitionsOf0And1(binaryNumbersArray);
             BinaryArrayOperations.PrintNumberWithMostOnes(binaryNumbersArray);
             BinaryArrayOperations.PrintTotalOnesCount(binaryNumbersArray);
+            Console.ReadLine();
         }
     }
 }
