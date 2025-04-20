@@ -1,36 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ex01_02;
+﻿using System; 
 
 namespace Ex01_03
 {
     class Program
     {
-        public static void Main()
+        public static void Main() // Main entry point of the program
         {
-            Console.WriteLine("Please Enter the level of the tree:");
+            Console.WriteLine("Please Enter the level of the tree:"); // Prompt user to enter tree level
 
-            const int k_MinValue = 4;
-            const int k_MaxValue = 15;
+            const int k_MinValue = 4; // Minimum level value
+            const int k_MaxValue = 15; // Maximum level value
 
-            string input = Console.ReadLine();
-            int levels;
-            bool success;
+            string input = Console.ReadLine(); // Read user input for the tree level
+            int levels; // Variable to store the number of levels
+            bool success; // Flag to check if parsing was successful
 
-            success = int.TryParse(input, out levels);
+            success = int.TryParse(input, out levels); // Try to parse the input into an integer
 
-            while(levels < k_MinValue || levels > k_MaxValue || success == false)
+            while (levels < k_MinValue || levels > k_MaxValue || success == false) // Check if the level is within the valid range
             {
-                Console.WriteLine("Please Try Again The level should be between 4 and 15");
-                input = Console.ReadLine();
-                success = int.TryParse(input, out levels);
+                Console.WriteLine("Please Try Again The level should be between 4 and 15"); // Prompt if invalid
+                input = Console.ReadLine(); // Read the input again
+                success = int.TryParse(input, out levels); // Try parsing again
             }
 
-            NumberTree.PrintNumberTree(levels, 1, 1);
-            Console.ReadLine();
+            Ex01_02.Program.PrintNumberTree(levels, 1, 1); // Call PrintNumberTree from Ex01_02.Program with user-specified levels
         }
     }
 }
